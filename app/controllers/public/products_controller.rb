@@ -20,6 +20,7 @@ class Public::ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @categories = Category.all
   end
 
   def update
@@ -36,6 +37,6 @@ class Public::ProductsController < ApplicationController
   
 private
   def product_params
-    params.require(:product).permit(:name, :description, :price)
+    params.require(:product).permit(:name, :description, :price, :category_id)
   end
 end
